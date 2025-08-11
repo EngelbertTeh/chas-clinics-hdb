@@ -152,9 +152,9 @@ clinics_count as (
 Questions & Answers:
 
 **assumptions**
-> there are slight discrepancies in address information between HDB property information and those from onemap, I've tried verifying the accuracy (e.g. st name, block number) using google maps - for the purposes of this work, obtained data is assumed to be accurate
-> there are some in-house/staff clinics - for the purposes of this work, assume all clinics listed are publicly accessible
-> there are 3.1 residents/ dwelling unit
+- there are slight discrepancies in address information between HDB property information and those from onemap, I've tried verifying the accuracy (e.g. st name, block number) using google maps - for the purposes of this work, obtained data is assumed to be accurate
+- there are some in-house/staff clinics - for the purposes of this work, assume all clinics listed are publicly accessible
+- there are 3.1 residents/ dwelling unit
 
 Rank towns in Singapore by the average residents per clinic. 
 (Use ⁠ Bldg Contract Town ⁠ as to group)
@@ -367,19 +367,18 @@ order by case when weighted_average_residents_per_clinic > 0 then 1 else 2 end, 
 
 
 **remarks**
-> added a new column in chas clinics dataset - planning_area (retrieved planning_area data from OneMap api using x,y )
-> added new columns in hdb_blocks dataset - latitude, longitude (retrieved values from OneMap api using blk_no and street values)
-> not enough data to map pioneer, tuas, seletar, southern islands, tanglin, western water catchmentplanning areas to a bldg_contract_town (not sure what's the abbreviation used for them)
-> OneMap offers a reverse geocoding API that can return a list of buildings within a 500 m radius of given coordinates.
+- added a new column in chas clinics dataset - planning_area (retrieved planning_area data from OneMap api using x,y )
+- added new columns in hdb_blocks dataset - latitude, longitude (retrieved values from OneMap api using blk_no and street values)
+- not enough data to map pioneer, tuas, seletar, southern islands, tanglin, western water catchmentplanning areas to a bldg_contract_town (not sure what's the abbreviation used for them)
+- OneMap offers a reverse geocoding API that can return a list of buildings within a 500 m radius of given coordinates.
 However, it only returns a maximum of 10 buildings
 Because of this, I’m considering manually getting all buildings within a 500m radius by implementing the Haversine equation.
 
 
 **references**
-> https://curiocity.nlb.gov.sg/story-maps/central-area/#:~:text=Comprising%20the%2011%20Planning%20Areas,and%20historic%20heart%20of%20Singapore.
-> https://www.hdb.gov.sg/about-us/history/town-planning/town-design-guides
-> https://en.wikipedia.org/wiki/Planning_areas_of_Singapore
+- https://curiocity.nlb.gov.sg/story-maps/central-area/#:~:text=Comprising%20the%2011%20Planning%20Areas,and%20historic%20heart%20of%20Singapore.
+- https://www.hdb.gov.sg/about-us/history/town-planning/town-design-guides
+- https://en.wikipedia.org/wiki/Planning_areas_of_Singapore
 
 
 
-# chas-clinics-hdb
